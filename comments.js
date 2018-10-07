@@ -1,4 +1,4 @@
-import { CREATE_COMMENT, DELETE_COMMENT, EDIT_COMMENT, SET_COMMENT_VOTES } from './actions';
+import { CREATE_COMMENT } from './actions';
 
 function comments( state = [], action ) {
     switch( action.type ) {
