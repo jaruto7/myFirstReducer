@@ -39,7 +39,7 @@ function comments( state = [], action ) {
         case SET_COMMENT_VOTES_UP:
             return state.map(comment => {
                 if( comment.id == action.id ) {
-                    votes = votes + 1;
+                    comment = comment + 1;
                 }
                 return comment;
             });
@@ -47,7 +47,7 @@ function comments( state = [], action ) {
         case SET_COMMENT_VOTES_DOWN:
             return state.map( comment => {
                 if( comment.id == action.id ) {
-                    votes = votes - 1;
+                    comment = comment - 1;
                 }
                 return comment;
             });    
