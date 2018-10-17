@@ -3,7 +3,8 @@ import uuid from uuid;
 export const CREATE_COMMENT = 'CREATE_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const DELETE_COMMENT = 'DELETE COMMENT';
-export const SET_COMMENT_VOTES = 'SET_COMMENT_VOTES';
+export const SET_COMMENT_VOTES_UP = 'SET_COMMENT_VOTES_UP';
+export const SET_COMMENT_VOTES_DOWN = 'SET_COMMENT_VOTES_DOWN';
 
 function createComment( text ) {
     return {
@@ -12,6 +13,9 @@ function createComment( text ) {
         id: uuid.v4()
     }
 }
+const boundCreateComment = function( text ) {
+    dispatch(createComment( text ));
+} 
 
 function editComment( id ) {
     return {
@@ -20,6 +24,9 @@ function editComment( id ) {
         id
     }
 }
+const boundEditComment = function( id ) {
+    dispatch(editComment( id ));
+} 
 
 function deleteComment( id ) {
     return {
@@ -27,19 +34,28 @@ function deleteComment( id ) {
         id
     }
 }
+const boundDeleteComment = function( id ) {
+    dispatch(deleteComment( id ));
+}
 
 function thumbUpComment( votes, id ) {
     return {
-        type: SET_COMMENT_VOTES,
+        type: SET_COMMENT_VOTES_UP,
         id,
-        votes: votes++
+        votes
     }
+}
+const boundThumbUpComment = function( votes, id ) {
+    dispatch(thumbUpComment( votes, id ));
 }
 
 function thumbDownComment( votes, id ) {
     return {
-        type: SET_COMMENT_VOTES,
+        type: SET_COMMENT_VOTES_DOWN,
         id,
-        votes: votes--
+        votes
     }
+}
+const boundThumbDownComment = function( votes, id ) {
+    dispatch(thumbDownComment( votes, id ));
 }
