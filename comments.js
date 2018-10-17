@@ -32,9 +32,19 @@ function comments( state = [], action ) {
             });
             
         case DELETE_COMMENT:
-            return (state = [], {
-               comments: state.comments.filter( comment => comment.id !== action.id)
-            })
+        return [{
+            comments: [
+                {
+                    id: action.id,
+                    comment: comment.id,
+                    text: action.text,
+                    votes: 0
+                }
+                , ...state ]
+        }];
+        // return (state = [], {
+        //        comments: state.comments.filter( comment => comment.id !== action.id)
+        //     })
             
         case SET_COMMENT_VOTES_UP:
             return state.map(comment => {
