@@ -14,13 +14,12 @@ function comments( state = [], action ) {
     switch( action.type ) {
         case CREATE_COMMENT:
             return [{
-                comments: [
+                comments:
                     {
                         id: action.id,
                         text: action.text,
                         votes: 0
                     }
-                    , ...state ]
             }];
 
         case EDIT_COMMENT:
@@ -32,20 +31,9 @@ function comments( state = [], action ) {
             });
             
         case DELETE_COMMENT:
-        return [{
-            comments: [
-                {
-                    id: action.id,
-                    comment: comment.id,
-                    text: action.text,
-                    votes: 0,
-                    initialState
-                }
-                , ...state ]
-        }];
-        // return (state = [], {
-        //        comments: state.comments.filter( comment => comment.id !== action.id)
-        //     })
+        return (state, {
+               comments: state.comments.filter( app )
+            });
             
         case SET_COMMENT_VOTES_UP:
             return state.map(comment => {
