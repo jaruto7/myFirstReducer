@@ -38,7 +38,8 @@ function comments( state = [], action ) {
                     id: action.id,
                     comment: comment.id,
                     text: action.text,
-                    votes: 0
+                    votes: 0,
+                    initialState
                 }
                 , ...state ]
         }];
