@@ -32,14 +32,14 @@ function comments( state = [], action ) {
             });
             
             case DELETE_COMMENT:
-            return Object.assign( {}, state, {
+            return Object.assign( [], state, {
                comments: state.comments.filter( comment => comment.id !== action.id ) 
             })
             
         case SET_COMMENT_VOTES_UP:
             return state.map(comment => {
                 if( comment.id == action.id ) {
-                    comment.votes = comment.votes + 1;
+                    votes = votes + 1;
                 }
                 return comment;
             });
@@ -47,7 +47,7 @@ function comments( state = [], action ) {
         case SET_COMMENT_VOTES_DOWN:
             return state.map( comment => {
                 if( comment.id == action.id ) {
-                    comment.votes = comment.votes - 1;
+                    votes = votes - 1;
                 }
                 return comment;
             });    

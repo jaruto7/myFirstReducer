@@ -17,10 +17,10 @@ const boundCreateComment = function( text ) {
     dispatch(createComment( text ));
 } 
 
-function editComment( id ) {
+function editComment( id, text ) {
     return {
         type: EDIT_COMMENT,
-        text: 'Wyedytowany tekst komentarza',
+        text: text,
         id
     }
 }
@@ -38,22 +38,20 @@ const boundDeleteComment = function( id ) {
     dispatch(deleteComment( id ));
 }
 
-function thumbUpComment( votes, id ) {
+function thumbUpComment( id ) {
     return {
         type: SET_COMMENT_VOTES_UP,
-        id,
-        votes
+        id
     }
 }
 const boundThumbUpComment = function( votes, id ) {
     dispatch(thumbUpComment( votes, id ));
 }
 
-function thumbDownComment( votes, id ) {
+function thumbDownComment( id ) {
     return {
         type: SET_COMMENT_VOTES_DOWN,
-        id,
-        votes
+        id
     }
 }
 const boundThumbDownComment = function( votes, id ) {
