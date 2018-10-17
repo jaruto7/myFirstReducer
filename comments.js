@@ -31,8 +31,8 @@ function comments( state = [], action ) {
                 return comment;
             });
             
-            case DELETE_COMMENT:
-            return ([], state, {
+        case DELETE_COMMENT:
+            return (state = [], {
                comments: state.comments.filter( comment => comment.id !== action.id)
             })
             
